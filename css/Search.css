@@ -1,0 +1,341 @@
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.searchBox{
+    margin: auto;
+    max-width: 1000px;
+    text-align: center;
+    position: relative;
+    border-radius: 2.5px;
+    font-weight: 700;
+    -webkit-transition: top 1.5s ease 0.35s, opacity .75s ease .5s;
+    transition: top 1.5s ease 0.35s, opacity .75s ease .5s;
+    text-align: center;
+    border: solid 1.5px #000;   
+}
+
+ .Search-btn-field {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  height: auto;
+  padding: 1rem 5rem;
+  cursor: pointer;
+  margin: 10px;
+  color: white;
+  background: #8d0aff;
+  outline: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.Search-btn-field:hover {
+    cursor: pointer; 
+    background-color: #5f1d99;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s; 
+}
+
+ .Search-input-field {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+     width: 135px;
+     margin: 5px;
+  height: 50px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  background: #ffffff;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+
+.Sort_and_filter{
+    margin: auto;
+    max-width: 1000px;
+    height: 55px;
+    padding: 10px;
+    display: none;
+}
+
+.Sort_box {
+    position: relative;
+}
+
+.select {
+    z-index: 2;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  width: 225px;
+}
+.select .label {
+  padding: 0.5em;
+  color: #333;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+.select > label {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 0.5em calc(30% + 2em) 0.5em 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+  cursor: pointer;
+}
+.select > label .label {
+  white-space: nowrap;
+}
+.select > label .label:after {
+  content: "";
+  position: absolute;
+  right: 0.5em;
+  top: 0.9em;
+  transition: 0.1s linear top;
+  border: 0.5em solid transparent;
+  border-top-color: #999;
+}
+.select > label:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+.select > label:hover .label:after {
+  top: 1em;
+}
+.select:hover > label {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+.select .options {
+  margin: 0;
+  padding: 0;
+  background: #ddd;
+  height: 0;
+  transition: 0.3s linear height;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.select .options:hover {
+  height: auto;
+  border-bottom: 2px solid #999;
+}
+.select .options li {
+  list-style: none;z-index: 100;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
+}
+.select .options li #custom-field {
+  background: none;
+  border: none;
+  line-height: 2em;
+  font-size: 1em;
+  color: #333;
+  padding: 0 0.5em;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  transition: 0.2s linear border;
+  border-left: 0 solid #666;
+}
+.select .options li #custom-field:focus {
+  border-left-width: 0.4em;
+}
+.select .options li label {
+  text-align: left;
+  display: block;
+  padding: 0.4em 0.5em;
+  cursor: pointer;
+  color: #333;
+    width: 1000px;
+  transition: 0.2s linear all;
+  border-left-color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select .options li label:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+.select .options li:nth-child(1) label:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+.select .options li:nth-last-child(1) {
+  border-bottom: none;
+}
+.select .options li [type="radio"] {
+  position: absolute;
+  display: block;
+  left: -999px;
+}
+.select .options li [type="radio"]:checked ~ label {
+  cursor: default;
+  border-left: 0.4em solid #666;
+}
+.select .options li [type="radio"]:checked ~ label:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  top: 0.4em;
+  right: 0.5em;
+  border-radius: 1em;
+  box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.7);
+  padding: 0.4em 1em;
+  background: #666;
+  color: #fff;
+  pointer-events: none;
+  font-size: 80%;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.select #is-focus {
+  position: absolute;
+  display: block;
+  top: -999px;
+}
+.select #is-focus:focus ~ label span.label:after {
+  border-top-color: transparent;
+  border-bottom-color: #999;
+  top: 0.3em;
+}
+
+.select #is-focus:focus ~ .options {
+  height: auto;
+  border-bottom: 2px solid #999;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px;
+    width: 150px;
+    float: right;
+  font-size: 16px;
+  border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+    z-index: 2;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+    padding: 20px;
+  right: 0;
+  background-color: #098760;
+    margin-top: 35px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.content1{
+    float: left;
+  min-width: 160px;
+}
+.content2{
+    float: right;
+  min-width: 160px;
+}
+.content3{
+    float: left;
+  min-width: 160px;
+}
+
+.Content_Title{
+    color: white;
+    font-size: 20px;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* The container */
+.container_checkbox {
+  display: block;
+  position: relative;
+    z-index: 5;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container_checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
